@@ -1,0 +1,7 @@
+test_duckdb:
+  outputs:
+    dev:
+      schema: main
+      type: duckdb
+      path: ./db
+  target: dev
