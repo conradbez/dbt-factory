@@ -76,7 +76,6 @@ def run_dbt():
     generate_sources()
     generate_models()
     dbt = dbtRunner()
-    # seed csv as data sources
 
     res: dbtRunnerResult = dbt.invoke(["seed",*DBT_RUN_ARGS])
     # for r in res.result:
