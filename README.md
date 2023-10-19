@@ -2,6 +2,7 @@
 
 Write re-usable sql code blocks and compile to a dbt project through yaml configuration to improve data logic DRY-ness
 
+If you're unfamiliar with (dbt)[https://github.com/dbt-labs/dbt-core], it is the leading sql data wrangling toolset (IMO) which adds really nice features and code modularity on top of SQL. `dbt-factory` aims to abstract dbt another level to increase DRYness and automatibility
 
 **Table of Contents**
 
@@ -61,6 +62,8 @@ Which uses the template `template/append.sql` and replaces `table_1` and `table_
 - Construct pipeline without knowing SQL
 - Construct pipelines without learning dbt
 - Avoid duplicative code
+- Easier automation of pipeline creation, so your code can interact with yaml instead of sql (advanced users)
+
 
 Inspired by Airflow's [DAG Factory](https://github.com/ajbosco/dag-factory)
 
