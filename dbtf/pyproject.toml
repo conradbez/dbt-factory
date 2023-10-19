@@ -39,6 +39,13 @@ Source = "https://github.com/unknown/dbtf"
 [project.scripts]
 dbtf = "dbtf.cli:dbtf"
 
+[tool.hatch.build]
+artifacts = [
+  "src/dbtf/dbt_project/seeds/test_table_1.csv",
+  "src/dbtf/dbt_project/seeds/test_table_2.csv",
+  "src/dbtf/dbt_project/profiles.yml",
+]
+
 [tool.hatch.version]
 path = "src/dbtf/__about__.py"
 

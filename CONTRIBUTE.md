@@ -21,7 +21,7 @@ Sometime hatch wouldn't reload unless I opened a new terminal and ran:
 
 # Publish
 
-Ensure you are in the directory containing `pyproject.toml` and run:
+Incement version in `dbtf/src/dbtf/__about__.py` and ensure you are in the directory containing `pyproject.toml` then run:
 
 - `hatch build`
 - `hatch publish`
