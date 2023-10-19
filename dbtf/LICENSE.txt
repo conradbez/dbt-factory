@@ -1,0 +1,3 @@
+## License
+
+dbt-factory © 2023 by Conrad Bezuidenhout is licensed under CC BY-NC-SA 4.0

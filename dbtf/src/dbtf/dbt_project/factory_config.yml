@@ -1,0 +1,6 @@
+nodes:
+  test_append:
+    template: append
+    dependencies:
+      table_1: test_table_1
+      table_2: test_table_2
