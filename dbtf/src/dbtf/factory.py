@@ -5,8 +5,8 @@ from pathlib import Path
 try:
     from dbt.cli.main import dbtRunner, dbtRunnerResult
 except Exception as e:
-    print(e)
     print("Please run `pip install dbt-core`")
+    raise e
 import sys
 import os
 import shutil
