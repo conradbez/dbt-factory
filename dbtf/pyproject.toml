@@ -26,9 +26,14 @@ classifiers = [
 ]
 dependencies = [
   "click",
-  "PyYAML==6.0.1",
-  "dbt-core==1.6.6",
-  "dbt-duckdb==1.6.1"
+  "PyYAML==6.0.0",
+  # we don't add these dependencies because it isn't supported through PyScript
+  # "dbt-core==1.6.6", 
+  # "dbt-duchdb==1.6.1",
+]
+dependency_links=[
+  # this is the equilent PyScript dependency for dbt-core (some dependencies removed)
+  # "https://github.com/conradbez/dbt-core/blob/c0c0a9ba6edadc1e49da632cdc8ad74d7b4b8659/core/dist/dbt_core-1.8.0a1-py3-none-any.whl",
 ]
 
 [project.urls]

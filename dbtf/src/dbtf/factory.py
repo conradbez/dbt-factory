@@ -2,7 +2,11 @@
 import click
 import yaml
 from pathlib import Path
-from dbt.cli.main import dbtRunner, dbtRunnerResult
+try:
+    from dbt.cli.main import dbtRunner, dbtRunnerResult
+except Exception as e:
+    print(e)
+    print("Please run `pip install dbt-core`")
 import sys
 import os
 import shutil
