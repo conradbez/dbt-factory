@@ -21,7 +21,7 @@ If you're unfamiliar with (dbt)[https://github.com/dbt-labs/dbt-core], it is the
 ## Installation
 
 ```console
-pip install dbtf
+pip install dbtf dbt-core==1.6.6 dbt-duckdb==1.6.1 dbt-core==1.6.6
 ```
 
 ## Inital setup
