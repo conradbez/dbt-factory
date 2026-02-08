@@ -2,5 +2,5 @@ nodes:
   test_append_model:
     template: append
     dependencies:
-      table_1: test_table_1
-      table_2: test_table_2
+      table_a: test_table_1
+      table_b: test_table_2

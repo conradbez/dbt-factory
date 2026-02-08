@@ -25,7 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "logs"
 
 seeds:
-    schema: seed_data
+  +schema: seed_data
 
 
 # Configuring models

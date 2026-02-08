@@ -2,16 +2,19 @@
 | :----------------------------------------------------------------- | :------- | :----- |
 | Move all cli commands to be under dbtf                             | Y        | Done   |
 | Publish to PyPi                                                    | Y        | Done   |
+| Upgrade to dbt-core 1.11+ and dbt-duckdb 1.10+                     | High     | Done   |
+| Fix deprecation warnings (+ schema prefix)                         | High     | Done   |
 |                                                                    |          |        |
-| Pass user args to dbt                                              | N        |        |
+| **Core Engine Improvements**                                       |          |        |
+| Add YAML Validation (Pydantic/Schema)                              | High     |        |
+| Layered Defaults (Default materialization/configs)                 | Med      |        |
+| Refactor `PROJECT_DIR` for robust pathing                          | High     |        |
+| Header tags for generated SQL (DO NOT EDIT)                        | Low      |        |
+|                                                                    |          |        |
+| **Functional Features**                                            |          |        |
+| Pass user args to dbt                                              | Med      |        |
 | Automagically parse dbt-utils and place them into templates        | N        |        |
 | Add Alteryx feature complete templates                             | N        |        |
-| Test on Python in browser and create instructions                  | N        |        |
-| Add exceptions for (1) no dbt project init'd (2) invalid yaml, etc | N        |        |
-| Use dbt's logger to log info / push messages to terminal           | N        |        |
-|                                                                    |          |        |
-|                                                                    |          |        |
-|                                                                    |          |        |
-|                                                                    |          |        |
-|                                                                    |          |        |
-|                                                                    |          |        |
+| Test on Python in browser (PyScript instructions)                  | Low      |        |
+| Add explicit exceptions (missing project/invalid yaml)             | High     |        |
+| Use dbt's logger for unified terminal output                       | Low      |        |
