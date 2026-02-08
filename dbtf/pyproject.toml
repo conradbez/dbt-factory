@@ -48,9 +48,11 @@ dbtf = "dbtf.cli:dbtf"
 
 [tool.hatch.build]
 artifacts = [
-  "src/dbtf/dbt_project/seeds/test_table_1.csv",
-  "src/dbtf/dbt_project/seeds/test_table_2.csv",
+  "src/dbtf/dbt_project/seeds/*.csv",
+  "src/dbtf/dbt_project/templates/*.sql",
   "src/dbtf/dbt_project/profiles.yml",
+  "src/dbtf/dbt_project/dbt_project.yml",
+  "src/dbtf/dbt_project/factory_config.yml",
 ]
 
 [tool.hatch.version]
