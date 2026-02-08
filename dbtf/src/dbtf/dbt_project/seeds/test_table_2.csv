@@ -1,2 +1,4 @@
-1,2,3
-1,2,3
+id,category,score
+1,cat1,10
+2,cat2,20
+4,cat4,40

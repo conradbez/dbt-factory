@@ -67,13 +67,25 @@ def generate_models():
     with open('factory_config.yml', 'r') as file:
         factory_config = yaml.safe_load(file)
     for model_name, model in factory_config['nodes'].items():
-        model_string = open(TEMPLATE_DIR / (model['template']+'.sql'), "r").read()
+        template_path = TEMPLATE_DIR / (model['template']+'.sql')
+        if not template_path.exists():
+             print(f"Warning: Template {model['template']} not found at {template_path}")
+             continue
+             
+        model_string = open(template_path, "r").read()
         for dep_name, dep_value in model['dependencies'].items():
-            model_string = model_string.replace(f'##{dep_name}##', f'"{dep_value}"')
-    with open(PROJECT_DIR / "models" / ( str(model_index)+ '.' + model_name +'.sql'), "w") as f_out:
-        f_out.write(model_string)
+            # If the placeholder is inside a ref() or source(), we need quotes for dbt
+            # The templates use ##name##. We'll check if the replacement is for a table/ref.
+            if dep_name.endswith('_table') or dep_name.startswith('table_'):
+                model_string = model_string.replace(f'##{dep_name}##', f"'{dep_value}'")
+            else:
+                model_string = model_string.replace(f'##{dep_name}##', f'{dep_value}')
+            
+        (PROJECT_DIR / "models").mkdir(exist_ok=True)
+        with open(PROJECT_DIR / "models" / ( str(model_index)+ '.' + model_name +'.sql'), "w") as f_out:
+            f_out.write(model_string)
 
-    model_index += 1
+        model_index += 1
 
 # %%
 def run_dbt():

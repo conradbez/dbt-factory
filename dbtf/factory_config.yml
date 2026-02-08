@@ -1,6 +1,24 @@
 nodes:
-  test_append_model:
+  # Test the original append
+  test_append:
     template: append
     dependencies:
       table_1: test_table_1
       table_2: test_table_2
+
+  # Test the new filter
+  test_filter:
+    template: filter
+    dependencies:
+      source_table: test_table_1
+      condition: "id = 1"
+
+  # Test the new join
+  test_join:
+    template: join
+    dependencies:
+      left_table: test_table_1
+      right_table: test_table_2
+      join_type: INNER
+      left_key: id
+      right_key: id
