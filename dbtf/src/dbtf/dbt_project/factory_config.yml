@@ -1,24 +1,26 @@
 nodes:
-  # Test the original append
-  test_append:
-    template: append
-    dependencies:
-      table_1: test_table_1
-      table_2: test_table_2
-
-  # Test the new filter
-  test_filter:
-    template: filter
+  # Test the new Alteryx tools
+  test_select:
+    template: select
     dependencies:
       source_table: test_table_1
-      condition: "id = 1"
+      columns: "id, name"
 
-  # Test the new join
-  test_join:
-    template: join
+  test_formula:
+    template: formula
     dependencies:
-      left_table: test_table_1
-      right_table: test_table_2
-      join_type: INNER
-      left_key: id
-      right_key: id
+      source_table: test_table_1
+      expression: "value * 1.1"
+      new_column: "value_taxed"
+
+  test_aggregate:
+    template: aggregate
+    dependencies:
+      source_table: test_table_2
+      group_by_columns: "category"
+      aggregations: "SUM(score) as total_score, AVG(score) as avg_score"
+
+  test_unique:
+    template: unique
+    dependencies:
+      source_table: test_table_1

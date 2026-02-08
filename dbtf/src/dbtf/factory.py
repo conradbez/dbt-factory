@@ -74,12 +74,12 @@ def generate_models():
              
         model_string = open(template_path, "r").read()
         for dep_name, dep_value in model['dependencies'].items():
-            # If the placeholder is inside a ref() or source(), we need quotes for dbt
-            # The templates use ##name##. We'll check if the replacement is for a table/ref.
+            # If the placeholder is for a table reference, wrap it in single quotes for ref()
+            # If it's a key, condition, or expression, pass it as-is
             if dep_name.endswith('_table') or dep_name.startswith('table_'):
                 model_string = model_string.replace(f'##{dep_name}##', f"'{dep_value}'")
             else:
-                model_string = model_string.replace(f'##{dep_name}##', f'{dep_value}')
+                model_string = model_string.replace(f'##{dep_name}##', str(dep_value))
             
         (PROJECT_DIR / "models").mkdir(exist_ok=True)
         with open(PROJECT_DIR / "models" / ( str(model_index)+ '.' + model_name +'.sql'), "w") as f_out:
