@@ -1,26 +1,35 @@
 nodes:
-  # Test the new Alteryx tools
-  test_select:
-    template: select
+  # Previous tests
+  test_append:
+    template: append
+    dependencies:
+      table_1: test_table_1
+      table_2: test_table_2
+
+  test_filter:
+    template: filter
     dependencies:
       source_table: test_table_1
-      columns: "id, name"
+      condition: "id = 1"
 
-  test_formula:
-    template: formula
+  test_join:
+    template: join
+    dependencies:
+      left_table: test_table_1
+      right_table: test_table_2
+      join_type: INNER
+      left_key: id
+      right_key: id
+
+  # New Alteryx tools for 0.18
+  test_sort:
+    template: sort
     dependencies:
       source_table: test_table_1
-      expression: "value * 1.1"
-      new_column: "value_taxed"
+      sort_columns: "name DESC"
 
-  test_aggregate:
-    template: aggregate
+  test_union_all:
+    template: union_all
     dependencies:
-      source_table: test_table_2
-      group_by_columns: "category"
-      aggregations: "SUM(score) as total_score, AVG(score) as avg_score"
-
-  test_unique:
-    template: unique
-    dependencies:
-      source_table: test_table_1
+      table_1: test_table_1
+      table_2: test_table_1
